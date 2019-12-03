@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.sql.PreparedStatement;
 
 
 public class Alumnos implements AlumnoDAO{

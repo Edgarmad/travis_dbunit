@@ -47,7 +47,7 @@ public class AlumnoDbTest extends DBTestCase {
     @Override
     protected IDataSet getDataSet() throws Exception {
         
-        InputStream xmlFile= getClass().getResourceAsStream("/empty.xml");
+        InputStream xmlFile= getClass().getResourceAsStream("/data.xml");
         
         return new FlatXmlDataSetBuilder().build(xmlFile);
         
@@ -69,7 +69,7 @@ public class AlumnoDbTest extends DBTestCase {
         Alumno a = new Alumno("10","Carlos","Peralta",22,79.7f);
         Alumnos dao= new Alumnos();
         dao.addAlumno(a);
-        assertEquals(1,conn.getRowCount("alumno"));
+        assertEquals(4,conn.getRowCount("alumno"));
         conn.close();
         
     }
@@ -79,11 +79,7 @@ public class AlumnoDbTest extends DBTestCase {
         Alumno a = new Alumno("12","Raul","Peralta",22,79.7f);
         Alumnos dao= new Alumnos();
         dao.removeAlumno("Raul", "Peralta");
-        IDataSet databaseDataSet = getConnection().createDataSet();
-        ITable actualTable = databaseDataSet.getTable("alumno");
-        IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("/Empty.xml"));
-        ITable expectedTable = expectedDataSet.getTable("Empty");
-        Assertion.assertEquals(expectedTable, actualTable);
+	assertEquals(3,conn.getRowCount("alumno"));
         conn.close();
     }
     @Test

@@ -63,12 +63,7 @@ public class AlumnoDbTest extends DBTestCase {
             conn.close();
         }
     }
-    @Test
-    public void test1() throws Exception {
-        IDatabaseConnection conn = getConnection();
-        assertEquals(0, conn.getRowCount("calidad2.alumno2"));
-        conn.close();
-    }
+
     @Test
     public void insertTest()throws Exception{
         IDatabaseConnection conn = getConnection();

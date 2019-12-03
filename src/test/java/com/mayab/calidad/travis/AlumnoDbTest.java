@@ -47,7 +47,7 @@ public class AlumnoDbTest extends DBTestCase {
     @Override
     protected IDataSet getDataSet() throws Exception {
         
-        InputStream xmlFile= getClass().getResourceAsStream("/Empty.xml");
+        InputStream xmlFile= getClass().getResourceAsStream("/data.xml");
         
         return new FlatXmlDataSetBuilder().build(xmlFile);
         
@@ -81,7 +81,7 @@ public class AlumnoDbTest extends DBTestCase {
         dao.removeAlumno("Raul", "Peralta");
         IDataSet databaseDataSet = getConnection().createDataSet();
         ITable actualTable = databaseDataSet.getTable("alumno");
-        IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("Empty.xml"));
+        IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("/Empty.xml"));
         ITable expectedTable = expectedDataSet.getTable("Empty");
         Assertion.assertEquals(expectedTable, actualTable);
         conn.close();
@@ -94,7 +94,7 @@ public class AlumnoDbTest extends DBTestCase {
         dao.updateAlumnoPromedio(a, 85.9f);
         IDataSet databaseDataSet = getConnection().createDataSet();
         ITable actualTable = databaseDataSet.getTable("alumno");
-        IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("Update.xml"));
+        IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("/Update.xml"));
         ITable expectedTable = expectedDataSet.getTable("Empty");
         Assertion.assertEquals(expectedTable, actualTable);
         conn.close();
@@ -107,7 +107,7 @@ public class AlumnoDbTest extends DBTestCase {
         dao.getAlumno("15");
         IDataSet databaseDataSet = getConnection().createDataSet();
         ITable actualTable = databaseDataSet.getTable("alumno");
-        IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("Update.xml"));
+        IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("/Update.xml"));
         ITable expectedTable = expectedDataSet.getTable("Empty");
         Assertion.assertEquals(expectedTable, actualTable);
         conn.close();

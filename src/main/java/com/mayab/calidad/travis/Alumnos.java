@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 
 public class Alumnos implements AlumnoDAO{
 	
-	public String URL="jdbc:mysql://localhost:3306/calidad"+ "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+	public String URL="jdbc:mysql://localhost/calidad"+ "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
 	
 	public void addAlumno(Alumno alumno) {
@@ -23,7 +23,7 @@ public class Alumnos implements AlumnoDAO{
                 lastName=alumno.getLastName();
                 age=alumno.getAge();
                 avg=alumno.getAverage();
-                Connection con= DriverManager.getConnection(URL, "root", "");
+                Connection con= DriverManager.getConnection(URL, "root", "Otakuecchi01");
                 Statement st;
                 st= con.createStatement();
                 int isEx = st.executeUpdate("INSERT INTO calidad.alumno VALUES" +"('"+id+"','"+name+"','"+lastName+"',"+age+","+avg+");");
@@ -35,7 +35,7 @@ public class Alumnos implements AlumnoDAO{
 
 	public void removeAlumno(String alumno, String lastName) {
             try{
-                Connection con= DriverManager.getConnection(URL, "root", "");
+                Connection con= DriverManager.getConnection(URL, "root", "Otakuecchi01");
                 Statement st;
                 st= con.createStatement();
                 int isEx = st.executeUpdate("DELETE FROM calidad.alumno WHERE alumno_name='"+alumno+"' AND alumno_LastNameP='"+lastName+"';");
@@ -49,7 +49,7 @@ public class Alumnos implements AlumnoDAO{
 		try{
                 String alum;
                 alum=alumno.getId();
-                Connection con= DriverManager.getConnection(URL, "root", "");
+                Connection con= DriverManager.getConnection(URL, "root", "Otakuecchi01");
                 Statement st;
                 st= con.createStatement();
                 int isEx = st.executeUpdate("UPDATE calidad.alumno SET average = "+promedio+" WHERE "+ "alumno_id='"+alum+"';");
@@ -62,7 +62,7 @@ public class Alumnos implements AlumnoDAO{
 
 	public void getAlumno(String id) {
 		try{
-                Connection con= DriverManager.getConnection(URL, "root", "");
+                Connection con= DriverManager.getConnection(URL, "root", "Otakuecchi01");
                 Statement st;
                 st= con.createStatement();
 		String query = "SELECT *FROM calidad.alumno WHERE alumno_id= '"+id+"';";

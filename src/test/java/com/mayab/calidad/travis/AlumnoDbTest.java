@@ -65,7 +65,7 @@ public class AlumnoDbTest extends DBTestCase {
     }
 
     @Test
-    public void insertTest()throws Exception{
+    public void testInsert()throws Exception{
         IDatabaseConnection conn = getConnection();
         Alumno a = new Alumno("10","Carlos","Peralta",22,79.7f);
         Alumnos dao= new Alumnos();
@@ -75,7 +75,7 @@ public class AlumnoDbTest extends DBTestCase {
         
     }
     @Test
-    public void removeTest()throws Exception{
+    public void testRemove()throws Exception{
         IDatabaseConnection conn = getConnection();
         Alumno a = new Alumno("12","Raul","Peralta",22,79.7f);
         Alumnos dao= new Alumnos();
@@ -88,7 +88,7 @@ public class AlumnoDbTest extends DBTestCase {
         conn.close();
     }
     @Test
-    public void updateTest()throws Exception{
+    public void testUpdate()throws Exception{
         IDatabaseConnection conn = getConnection();
         Alumno a = new Alumno("13","Majo","Perez",22,79.7f);
        Alumnos dao= new Alumnos();
@@ -101,7 +101,7 @@ public class AlumnoDbTest extends DBTestCase {
         conn.close();
     }
     @Test
-    public void getTest()throws Exception{
+    public void testGet()throws Exception{
         IDatabaseConnection conn = getConnection();
         Alumno a = new Alumno("15","Carla","Pera",20,79.7f);
         AlumnoDAO dao= new Alumnos();

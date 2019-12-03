@@ -47,7 +47,7 @@ public class AlumnoDbTest extends DBTestCase {
     @Override
     protected IDataSet getDataSet() throws Exception {
         
-        InputStream xmlFile= getClass().getResourceAsStream("/data.xml");
+        InputStream xmlFile= getClass().getResourceAsStream("/empty.xml");
         
         return new FlatXmlDataSetBuilder().build(xmlFile);
         

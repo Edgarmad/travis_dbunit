@@ -103,7 +103,7 @@ public class AlumnoDbTest extends DBTestCase {
         dao.getAlumno("15");
         IDataSet databaseDataSet = getConnection().createDataSet();
         ITable actualTable = databaseDataSet.getTable("alumno");
-        InputStream xmlFile = getClass().getResourceAsStream("/empty.xml");
+        InputStream xmlFile = getClass().getResourceAsStream("/updatea.xml");
 	IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(xmlFile);
 	ITable expectedTable = expectedDataSet.getTable("alumno");
         Assertion.assertEquals(expectedTable, actualTable);

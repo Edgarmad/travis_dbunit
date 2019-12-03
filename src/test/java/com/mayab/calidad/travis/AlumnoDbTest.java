@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 
 public class AlumnoDbTest extends DBTestCase {
     
-    public String URL="jdbc:mysql://localhost:3306/calidad2"+ "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    public String URL="jdbc:mysql://localhost:3306/calidad"+ "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     public AlumnoDbTest(String name){
         super(name);
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver");
@@ -33,7 +33,7 @@ public class AlumnoDbTest extends DBTestCase {
                 Connection con= DriverManager.getConnection(URL, "root", "");
                 Statement st;
                 st= con.createStatement();
-                int isEx = st.executeUpdate("INSERT INTO calidad2.alumno2(alumno_name,alumno_LastNameP,age,average) VALUES" +"('Alex','Diaz',19,8.7);");
+                int isEx = st.executeUpdate("INSERT INTO calidad.alumno(alumno_name,alumno_LastNameP,age,average) VALUES" +"('Alex','Diaz',19,8.7);");
                 con.close(); 
             }catch (Exception e){
                 e.printStackTrace();
@@ -70,7 +70,7 @@ public class AlumnoDbTest extends DBTestCase {
         Alumno a = new Alumno("10","Carlos","Peralta",22,79.7f);
         Alumnos dao= new Alumnos();
         dao.addAlumno(a);
-        assertEquals(1,conn.getRowCount("calidad2.alumno2"));
+        assertEquals(1,conn.getRowCount("calidad.alumno"));
         conn.close();
         
     }
@@ -81,7 +81,7 @@ public class AlumnoDbTest extends DBTestCase {
         Alumnos dao= new Alumnos();
         dao.removeAlumno("Raul", "Peralta");
         IDataSet databaseDataSet = getConnection().createDataSet();
-        ITable actualTable = databaseDataSet.getTable("calidad2.alumno2");
+        ITable actualTable = databaseDataSet.getTable("calidad.alumno");
         IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("Empty.xml"));
         ITable expectedTable = expectedDataSet.getTable("Empty");
         Assertion.assertEquals(expectedTable, actualTable);
@@ -94,7 +94,7 @@ public class AlumnoDbTest extends DBTestCase {
        Alumnos dao= new Alumnos();
         dao.updateAlumnoPromedio(a, 85.9f);
         IDataSet databaseDataSet = getConnection().createDataSet();
-        ITable actualTable = databaseDataSet.getTable("calidad2.alumno2");
+        ITable actualTable = databaseDataSet.getTable("calidad.alumno");
         IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("Update.xml"));
         ITable expectedTable = expectedDataSet.getTable("Empty");
         Assertion.assertEquals(expectedTable, actualTable);
@@ -107,7 +107,7 @@ public class AlumnoDbTest extends DBTestCase {
         AlumnoDAO dao= new Alumnos();
         dao.getAlumno("15");
         IDataSet databaseDataSet = getConnection().createDataSet();
-        ITable actualTable = databaseDataSet.getTable("calidad2.alumno2");
+        ITable actualTable = databaseDataSet.getTable("calidad.alumno");
         IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("Update.xml"));
         ITable expectedTable = expectedDataSet.getTable("Empty");
         Assertion.assertEquals(expectedTable, actualTable);

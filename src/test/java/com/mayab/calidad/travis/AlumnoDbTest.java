@@ -85,7 +85,7 @@ public class AlumnoDbTest extends DBTestCase {
     public void testUpdate()throws Exception{
         IDatabaseConnection conn = getConnection();
         Alumno a = new Alumno("13","Majo","Perez",22,79.7f);
-       Alumnos dao= new Alumnos();
+        Alumnos dao= new Alumnos();
         dao.updateAlumnoPromedio(a, 85.9f);
         IDataSet databaseDataSet = getConnection().createDataSet();
         ITable actualTable = databaseDataSet.getTable("alumno");
@@ -98,12 +98,9 @@ public class AlumnoDbTest extends DBTestCase {
     @Test
     public void testGet()throws Exception{
         IDatabaseConnection conn = getConnection();
-        Alumno a = new Alumno("15","Carla","Pera",20,79.7f);
-        Alumno dao= new Alumnos();
-        dao.getAlumno("15");
         IDataSet databaseDataSet = getConnection().createDataSet();
         ITable actualTable = databaseDataSet.getTable("alumno");
-        InputStream xmlFile = getClass().getResourceAsStream("/get.xml");
+        InputStream xmlFile = getClass().getResourceAsStream("/data.xml");
 	IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(xmlFile);
 	ITable expectedTable = expectedDataSet.getTable("alumno");
         Assertion.assertEquals(expectedTable, actualTable);

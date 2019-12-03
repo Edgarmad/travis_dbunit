@@ -98,15 +98,17 @@ public class AlumnoDbTest extends DBTestCase {
     @Test
     public void testGet()throws Exception{
         IDatabaseConnection conn = getConnection();
+        Alumno a = new Alumno("15","Carla","Pera",20,79.7f);
+        Alumno dao= new Alumnos();
+        dao.getAlumno("15");
         IDataSet databaseDataSet = getConnection().createDataSet();
         ITable actualTable = databaseDataSet.getTable("alumno");
-        InputStream xmlFile = getClass().getResourceAsStream("/data.xml");
+        InputStream xmlFile = getClass().getResourceAsStream("/get.xml");
 	IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(xmlFile);
 	ITable expectedTable = expectedDataSet.getTable("alumno");
         Assertion.assertEquals(expectedTable, actualTable);
         conn.close();
     }
-   
     
     
 }

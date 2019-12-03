@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class Alumnos implements AlumnoDAO{
 	
-	public String URL="jdbc:mysql://localhost:3306/calidad2"+ "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+	public String URL="jdbc:mysql://localhost:3306/calidad"+ "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
 	
 	public void addAlumno(Alumno alumno) {
@@ -22,10 +22,10 @@ public class Alumnos implements AlumnoDAO{
                 lastName=alumno.getLastName();
                 age=alumno.getAge();
                 avg=alumno.getAverage();
-                Connection con= DriverManager.getConnection(URL, "calidaduser", "FoXterr1er");
+                Connection con= DriverManager.getConnection(URL, "root", "");
                 Statement st;
                 st= con.createStatement();
-                int isEx = st.executeUpdate("INSERT INTO alumno2 VALUES" +"('"+id+"','"+name+"','"+lastName+"',"+age+","+avg+");");
+                int isEx = st.executeUpdate("INSERT INTO calidad.alumno VALUES" +"('"+id+"','"+name+"','"+lastName+"',"+age+","+avg+");");
                 con.close(); 
             }catch (Exception e){
                 e.printStackTrace();
@@ -34,10 +34,10 @@ public class Alumnos implements AlumnoDAO{
 
 	public void removeAlumno(String alumno, String lastName) {
             try{
-                Connection con= DriverManager.getConnection(URL, "calidaduser", "FoXterr1er");
+                Connection con= DriverManager.getConnection(URL, "root", "");
                 Statement st;
                 st= con.createStatement();
-                int isEx = st.executeUpdate("DELETE FROM alumno2 WHERE alumno_name='"+alumno+"' AND alumno_LastNameP='"+lastName+"';");
+                int isEx = st.executeUpdate("DELETE FROM calidad.alumno WHERE alumno_name='"+alumno+"' AND alumno_LastNameP='"+lastName+"';");
                 con.close(); 
             }catch (Exception e){
                 e.printStackTrace();
@@ -48,10 +48,10 @@ public class Alumnos implements AlumnoDAO{
 		try{
                 String alum;
                 alum=alumno.getId();
-                Connection con= DriverManager.getConnection(URL, "calidaduser", "FoXterr1er");
+                Connection con= DriverManager.getConnection(URL, "root", "");
                 Statement st;
                 st= con.createStatement();
-                int isEx = st.executeUpdate("UPDATE alumno2 SET average = "+promedio+" WHERE "+ "alumno_id='"+alum+"';");
+                int isEx = st.executeUpdate("UPDATE calidad.alumno SET average = "+promedio+" WHERE "+ "alumno_id='"+alum+"';");
                 con.close(); 
             }catch (Exception e){
                 e.printStackTrace();
@@ -61,10 +61,10 @@ public class Alumnos implements AlumnoDAO{
 
 	public void getAlumno(String id) {
 		try{
-                Connection con= DriverManager.getConnection(URL, "calidaduser", "FoXterr1er");
+                Connection con= DriverManager.getConnection(URL, "root", "");
                 Statement st;
                 st= con.createStatement();
-                int isEx = st.executeUpdate("SELECT *FROM alumno2 WHERE alumno_id= '"+id+"';");
+                int isEx = st.executeUpdate("SELECT *FROM calidad.alumno WHERE alumno_id= '"+id+"';");
                 con.close(); 
             }catch (Exception e){
                 e.printStackTrace();

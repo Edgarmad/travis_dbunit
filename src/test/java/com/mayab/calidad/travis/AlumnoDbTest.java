@@ -90,7 +90,7 @@ public class AlumnoDbTest extends DBTestCase {
         dao.updateAlumnoPromedio(a, 85.9f);
         IDataSet databaseDataSet = getConnection().createDataSet();
         ITable actualTable = databaseDataSet.getTable("alumno");
-        IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("/Update.xml"));
+        IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("/updatea.xml"));
         ITable expectedTable = expectedDataSet.getTable("Empty");
         Assertion.assertEquals(expectedTable, actualTable);
         conn.close();
@@ -103,7 +103,7 @@ public class AlumnoDbTest extends DBTestCase {
         dao.getAlumno("15");
         IDataSet databaseDataSet = getConnection().createDataSet();
         ITable actualTable = databaseDataSet.getTable("alumno");
-        IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("/Update.xml"));
+        IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("/updatea.xml"));
         ITable expectedTable = expectedDataSet.getTable("Empty");
         Assertion.assertEquals(expectedTable, actualTable);
         conn.close();

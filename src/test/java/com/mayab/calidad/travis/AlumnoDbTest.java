@@ -29,6 +29,15 @@ public class AlumnoDbTest extends DBTestCase {
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, URL);
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "root");
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "");
+                    try{
+                Connection con= DriverManager.getConnection(URL, "root", "");
+                Statement st;
+                st= con.createStatement();
+                int isEx = st.executeUpdate("INSERT INTO alumno(alumno_name,alumno_LastNameP,age,average) VALUES" +"('Alex','Diaz',19,8.7);");
+                con.close(); 
+            }catch (Exception e){
+                e.printStackTrace();
+            }
     }
 
     

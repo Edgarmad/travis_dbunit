@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-    <alumno2 alumno_id="1" alumno_name="Ed" alumno_LastNameP="Sheeran" age="22" average="5.0"/>
-    <alumno2 alumno_id="2" alumno_name="Rams" alumno_LastNameP="Martinez" age="17" average="7.9"/>
-    <alumno2 alumno_id="3" alumno_name="Cheke" alumno_LastNameP="Meraz" age="25" average="9.0"/>
+    <alumno alumno_id="1" alumno_name="Ed" alumno_LastNameP="Sheeran" age="22" average="5.0"/>
+    <alumno alumno_id="2" alumno_name="Rams" alumno_LastNameP="Martinez" age="17" average="7.9"/>
+    <alumno alumno_id="3" alumno_name="Cheke" alumno_LastNameP="Meraz" age="25" average="9.0"/>
 </dataset>

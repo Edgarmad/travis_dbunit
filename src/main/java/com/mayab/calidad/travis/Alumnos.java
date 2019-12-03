@@ -66,7 +66,7 @@ public class Alumnos implements AlumnoDAO{
                 Statement st;
                 st= con.createStatement();
 		String query = "SELECT *FROM calidad.alumno WHERE alumno_id= '"+id+"';";
-                PreparedStatement preparedStatement = conn.prepareStatement(query);
+                PreparedStatement preparedStatement = con.prepareStatement(query);
 		preparedStatement.execute();
                 con.close(); 
             }catch (Exception e){

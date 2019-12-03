@@ -71,7 +71,6 @@ public class AlumnoDbTest extends DBTestCase {
         dao.addAlumno(a);
         assertEquals(4,conn.getRowCount("alumno"));
         conn.close();
-        
     }
     @Test
     public void testRemove()throws Exception{
@@ -104,7 +103,7 @@ public class AlumnoDbTest extends DBTestCase {
         dao.getAlumno("15");
         IDataSet databaseDataSet = getConnection().createDataSet();
         ITable actualTable = databaseDataSet.getTable("alumno");
-        InputStream xmlFile = getClass().getResourceAsStream("/updatea.xml");
+        InputStream xmlFile = getClass().getResourceAsStream("/empty.xml");
 	IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(xmlFile);
 	ITable expectedTable = expectedDataSet.getTable("alumno");
         Assertion.assertEquals(expectedTable, actualTable);

@@ -64,7 +64,7 @@ public class Alumnos implements AlumnoDAO{
                 Connection con= DriverManager.getConnection(URL, "root", "");
                 Statement st;
                 st= con.createStatement();
-                int isEx = st.executeQuery("SELECT *FROM calidad.alumno WHERE alumno_id= '"+id+"';");
+                ResultSet sEx = st.executeQuery("SELECT *FROM calidad.alumno WHERE alumno_id= '"+id+"';");
                 con.close(); 
             }catch (Exception e){
                 e.printStackTrace();

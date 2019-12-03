@@ -19,4 +19,4 @@ mysql:
  username: root
  encoding: utf8
   
-after_success: echo "Tablas creadas"
+after_success: echo "Pruebas completas"

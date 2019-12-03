@@ -6,7 +6,9 @@ services:
 before_install:
  - sudo mysql -e 'select User from mysql.user;'
  - sudo mysql -e 'CREATE DATABASE IF NOT EXISTS calidad2;'
+ - sudo mysql -e 'select database();'
  - sudo mysql -e 'USE calidad2;'
+ - sudo mysql -e 'select database();'
  - sudo mysql -e 'CREATE TABLE IF NOT EXISTS Alumno2(nombre VARCHAR(30), edad INT);'
  - sudo mysql -e 'SHOW DATABASES;'
  - sudo mysql --version
